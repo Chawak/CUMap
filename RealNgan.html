@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CUMap</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .card {
+            position: fixed;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            top: 12%;
+            left: 1%;
+            width: 25%;
+            height: 75%;
+            border-radius: 5px;
+            z-index: 100;
+            display: none;
+        }
+        #tincard {
+            position: absolute;
+            bottom: 20%;
+            left: 0%;
+            width: 100%;
+        }
+        #imgincard {
+            width: 100%;
+            height: 60%;
+        }
+        #routebtn {
+            position: absolute;
+            bottom: 10%;
+            left: 20%;
+        }
+        #factbtn {
+            position: absolute;
+            bottom: 10%;
+            left: 60%;
+        }
+        .moreheight{
+            height:5%;
+        }
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+        .container {
+            padding: 2px 16px;
+        }
+
+        #closebutton {
+            position: absolute;
+            top: 2%;
+            right: 2%;
+            z-index: 102;
+            width: 21px;
+            height: 21px;
+            padding: 0;
+            border: none;
+            background: url(close.png);
+        }
+
+        #map {
+            height: 91%;
+        }
+
+        #places {
+            background-color: #fff;
+            font-family: Roboto;
+            font-size: 15px;
+            font-weight: 300;
+            margin-left: 12px;
+            padding: 0 11px 0 13px;
+            text-overflow: ellipsis;
+            width: 30%;
+            height: 8%;
+        }
+
+        .container {
+            padding: 2px 16px;
+        }
+
+        .controls {
+            margin-top: 16px;
+            border: 1px solid transparent;
+            border-radius: 2px 0 0 2px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            height: 32px;
+            outline: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        #places:focus {
+            border-color: #4d90fe;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-custom {
+            background-color: #ffc0cb;
+        }
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text {
+            color: #000000;
+        }
+
+        .navbar-custom .navbar-nav .nav-link {
+            color: #000000;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSYSoMCjexo3XRCnI63nspjsC4q_dXcg4&libraries=places"></script>
+</head>
+
+<body>
+    <div class="card" id="myDI">
+        <button id="closebutton" type="button" onclick="closecard()"></button>
+        <img src="img_avatar2.jpg" id="imgincard" alt="Avatar">
+        <div id="tincard">
+            <div class="container">
+                <h4><b>Some P</b></h4>
+                <p>Interior Designer</p>
+            </div>
+        </div>
+        <button type="button" id="routebtn">เส้นทาง</button>
+        <button type="button" id="factbtn">ข้อมูล</button>
+    </div>
+
+    <div class="card" id="myDIV">
+            <button id="closebutton" type="button" onclick="closecard()"></button>
+            <img src="img_avatar2.jpg" id="imgincard" alt="Avatar">
+            <div id="tincard">
+                <div class="container">
+                    <input class="form-control mr-sm-2 controls" id='an' type="search" placeholder="Search" aria-label="Search">
+                </div>
+            </div>
+            <button type="button" id="routebtn">เส้นทาง</button>
+            <button type="button" id="factbtn">ข้อมูล</button>
+        </div>
+    
+    <div id=map></div>
+
+    <input class="form-control mr-sm-2 controls" id='places' type="search" placeholder="Search" aria-label="Search">
+
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="#">CUMap</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <script type="text/javascript" src="map.js"></script>
+</body>
+
+</html>
