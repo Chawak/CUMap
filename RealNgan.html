@@ -1,51 +1,101 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>CUMap</title>
+    <title>
+        CUMap</title>
+    <link rel = "icon" href =  "CU.png" type = "image/x-icon"> 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
+        .searchboxincard{
+            position: absolute;
+            box-shadow:  rgba(0, 0, 0, 0.2);
+            right:8%;
+            top:3%;
+            width:80%;
+            height:20%;
+        }
+        .searchboxincard2{
+            position: absolute;
+            right:8%;
+            top:13%;
+            width:80%;
+            height:20%;
+        }
         .card {
             position: fixed;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             top: 12%;
-            left: 1%;
+            right: 1%;
             width: 25%;
             height: 75%;
             border-radius: 5px;
             z-index: 100;
             display: none;
         }
+        .card2{
+            position: absolute;
+            top: 25%;
+            left: 1%;
+            width: 98%;
+            height: 75%;
+            border-radius: 5px;
+            z-index: 102;
+            display: none;
+            overflow: auto;
+        }
+
         #tincard {
             position: absolute;
             bottom: 20%;
             left: 0%;
             width: 100%;
         }
+
+        #tindirect {
+            position: absolute;
+            top: 2%;
+            left: 0%;
+            width: 100%;
+        }
+        #tindata {
+            position: absolute;
+            top: 45%;
+            left: 0%;
+            width: 100%;
+        }
+
         #imgincard {
             width: 100%;
             height: 60%;
+        }
+        #imgindata {
+            width: 100%;
+            height: 40%;
         }
         #routebtn {
             position: absolute;
             bottom: 10%;
             left: 20%;
         }
+
         #factbtn {
             position: absolute;
             bottom: 10%;
             left: 60%;
         }
-        .moreheight{
-            height:5%;
+
+        .moreheight {
+            height: 5%;
         }
+
         .card:hover {
             box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
         }
+
         .container {
             padding: 2px 16px;
         }
@@ -67,15 +117,22 @@
         }
 
         #places {
+            position: fixed;
             background-color: #fff;
             font-family: Roboto;
             font-size: 15px;
             font-weight: 300;
-            margin-left: 12px;
+            top:0.5%;
+            right:5%;
             padding: 0 11px 0 13px;
             text-overflow: ellipsis;
             width: 30%;
             height: 8%;
+        }
+        .noshadow{
+            -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
         }
 
         .container {
@@ -103,18 +160,25 @@
             margin: 0;
             padding: 0;
         }
-
+        #logo
+        {
+            position: absolute;
+            height: 100%;
+            width: 10%;
+            left:0.5%;
+            bottom:0%;
+        }
         .navbar-custom {
-            background-color: #ffc0cb;
+            background-color: "white";
         }
 
         .navbar-custom .navbar-brand,
         .navbar-custom .navbar-text {
-            color: #000000;
+            color: #f77bd8;
         }
 
         .navbar-custom .navbar-nav .nav-link {
-            color: #000000;
+            color: #f77bd8;
         }
     </style>
 
@@ -128,57 +192,66 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-    <script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSYSoMCjexo3XRCnI63nspjsC4q_dXcg4&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSYSoMCjexo3XRCnI63nspjsC4q_dXcg4&libraries=places"></script>
 </head>
 
 <body>
-    <div class="card" id="myDI">
-        <button id="closebutton" type="button" onclick="closecard()"></button>
+        <nav class="navbar navbar-expand-lg navbar-custom">
+                <a class="navbar-brand" href="#">
+                    <img id="logo" src="cumaplogo3.png">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" >Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <input class="form-control noshadow" id='places' type="search" placeholder="Where do you want to know?" aria-label="Search">
+
+                    </ul>
+                </div>
+            </nav>
+    <div class="card" id="normal">
+        <button id="closebutton" type="button" onclick="closenormcard2()"></button>
         <img src="img_avatar2.jpg" id="imgincard" alt="Avatar">
         <div id="tincard">
             <div class="container">
-                <h4><b>Some P</b></h4>
-                <p>Interior Designer</p>
+                <h4><b>Some Place</b></h4>
+                <p>Place Fact</p>
             </div>
         </div>
-        <button type="button" id="routebtn">เส้นทาง</button>
-        <button type="button" id="factbtn">ข้อมูล</button>
+        <button type="button" id="routebtn" onclick="opendirect()">เส้นทาง</button>
+        <button type="button" id="factbtn" onclick="opendata()">ข้อมูล</button>
     </div>
 
-    <div class="card" id="myDIV">
-            <button id="closebutton" type="button" onclick="closecard()"></button>
-            <img src="img_avatar2.jpg" id="imgincard" alt="Avatar">
-            <div id="tincard">
-                <div class="container">
-                    <input class="form-control mr-sm-2 controls" id='an' type="search" placeholder="Search" aria-label="Search">
+    <div class="card" id="direct">
+        <button id="closebutton" type="button" onclick="closedirectcard2()"></button>
+            <input class="form-control mr-sm-2 controls searchboxincard" id="destination" type="search" placeholder="Where are you?" aria-label="Search">
+            <button type="button" onclick="opendata()">Use your location</button>
+            <div class="card2" id="route"></div>
+    </div>
+
+    <div class="card" id="data">
+            <button id="closebutton" type="button" onclick="closedatacard2()"></button>
+            <img src="img_avatar2.jpg" id="imgindata" alt="Avatar">
+            <div>
+                <div class="container" id="tindata">
+                    <h4><b>Some Place</b></h4>
+                    <p>Place Fact</p>
                 </div>
             </div>
-            <button type="button" id="routebtn">เส้นทาง</button>
-            <button type="button" id="factbtn">ข้อมูล</button>
         </div>
-    
+
+
     <div id=map></div>
 
-    <input class="form-control mr-sm-2 controls" id='places' type="search" placeholder="Search" aria-label="Search">
-
-    <nav class="navbar navbar-expand-lg navbar-custom">
-        <a class="navbar-brand" href="#">CUMap</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    
     <script type="text/javascript" src="map.js"></script>
 </body>
 
