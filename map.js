@@ -1,5 +1,6 @@
 var places, infoWindow;
 var marker, mode = "WALKING";
+let firestore = firebase.firestore()
 var map = new google.maps.Map(document.getElementById('map'), {
   zoom: 15,
   center: new google.maps.LatLng(13.738347, 100.532013),
@@ -8,82 +9,6 @@ var map = new google.maps.Map(document.getElementById('map'), {
   fullscreenControl: false,
   zoomControl: false
 });
-function $_GET(param) {
-  var url_string = window.location.href
-  var url = new URL(url_string);
-  var c = url.searchParams.get(param);
-  return c;
-}
-var S = $_GET('start');
-var E = $_GET('end');
-var P = $_GET('place');
-function urlplace() {
-  emptydest();
-  if (marker) {
-    marker.setMap(null);
-  }
-  if (directionsDisplay) {
-    directionsDisplay.setMap(null);
-    directionsDisplay.setPanel(null);
-  }
-  directionsDisplay = new google.maps.DirectionsRenderer({
-    map: map
-  });
-  places = P;
-  var bounds = new google.maps.LatLngBounds();
-  var i, place;
-  for (i = 0; place = places[i]; i++) {
-    (function (place) {
-      marker = new google.maps.Marker({
-        position: place.geometry.location
-      });
-      marker.bindTo('map', searchBox, 'map');
-      google.maps.event.addListener(marker, 'map_changed', function () {
-        if (!this.getMap()) {
-          this.unbindAll();
-        }
-      });
-      bounds.extend(place.geometry.location);
-    }(place));
-  }
-  map.fitBounds(bounds);
-  searchBox.set('map', map);
-  map.setZoom(17);
-  closedatacard();
-  closedirectcard();
-  opennorm();
-}
-function urldirec()
-{
-  if (S === 'none'){
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        var pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-      calculateAndDisplayRoute2(directionsService, directionsDisplay,pos,E,mode);
-      directionsDisplay.setMap(map);
-      openroute();
-      directionsDisplay.setPanel(document.getElementById('route'));
-      }, function() {
-      handleLocationError(true, infoWindow, map.getCenter());
-      });
-    } 
-    else {
-      // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter());
-    }
-  }
-  else{
-    calculateAndDisplayRoute2(directionsService, directionsDisplay,S,E,mode);
-    directionsDisplay.setMap(map);
-    openroute();
-    directionsDisplay.setPanel(document.getElementById('route'));
-  }
-}
-urlplace();
-urldirec();
 var directionsService = new google.maps.DirectionsService();
 var directionsDisplay = new google.maps.DirectionsRenderer(
   {
@@ -93,9 +18,104 @@ var directionsDisplay = new google.maps.DirectionsRenderer(
 var searchBox = new google.maps.places.SearchBox(document.getElementById('places'));
 var input2 = document.getElementById('destination');
 var endsearch = new google.maps.places.SearchBox(input2);
+function $_GET(param) {
+  var url_string = window.location.href
+  var url = new URL(url_string);
+  var c = url.searchParams.get(param);
+  return c;
+}
+var S = $_GET('start');
+var E = $_GET('end');
+var P = $_GET('places');
+function urlplace() {
+  var bounds = new google.maps.LatLngBounds();
+  var i, place;
+  var request = {
+    query: P,
+    fields: ['name', 'geometry', 'photos', 'formatted_address']
+  };
+  if (P === null) {
+    return;
+  }
+  
+  var service = new google.maps.places.PlacesService(map);
+
+  service.findPlaceFromQuery(request, function (results, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      marker = new google.maps.Marker({
+        position: results[0].geometry.location
+      });
+      document.getElementById("pname").innerHTML = results[0].name;
+      document.getElementById("pname2").innerHTML = results[0].name;
+      document.getElementById("addr2").innerHTML = results[0].formatted_address;
+      var PT = results[0].photos;
+      if (PT) {
+        document.getElementById("pimg").src = PT[0].getUrl({'maxWidth': 1281, 'maxHeight': 721});
+        document.getElementById("pimg2").src = PT[0].getUrl({'maxWidth': 1281, 'maxHeight':721 });
+      }
+      else
+      {
+        document.getElementById("pimg").src = "img_avatar2.jpg";
+        document.getElementById("pimg2").src = "img_avatar2.jpg"; 
+      }
+      marker.bindTo('map', searchBox, 'map');
+      google.maps.event.addListener(marker, 'map_changed', function () {
+        if (!this.getMap()) {
+          this.unbindAll();
+        }
+      });
+      bounds.extend(results[0].geometry.location);
+    }
+  });
+  var y=document.getElementById("showbtn");
+  y.style.display="none";
+  map.fitBounds(bounds);
+  searchBox.set('map', map);
+  map.setZoom(17);
+  closedatacard();
+  closedirectcard();
+  opennorm();
+}
+function urldirec() {
+  if (E === null) {
+    return;
+  }
+  if (S === null) {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        calculateAndDisplayRoute2(directionsService, directionsDisplay, pos, E, mode);
+        directionsDisplay.setMap(map);
+        opendirect();
+        openroute();
+        directionsDisplay.setPanel(document.getElementById('route'));
+      }, function () {
+        handleLocationError(true, infoWindow, map.getCenter());
+      });
+    }
+    else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+  }
+  else {
+    calculateAndDisplayRoute2(directionsService, directionsDisplay, S, E, mode);
+    directionsDisplay.setMap(map);
+    opendirect();
+    openroute();
+    directionsDisplay.setPanel(document.getElementById('route'));
+  }
+}
+urlplace();
+urldirec();
 // create directions renderer and bind it to map
 google.maps.event.addListener(searchBox, 'places_changed', function () {
   emptydest();
+  var n;
   if (marker) {
     marker.setMap(null);
   }
@@ -114,6 +134,20 @@ google.maps.event.addListener(searchBox, 'places_changed', function () {
       marker = new google.maps.Marker({
         position: place.geometry.location
       });
+      document.getElementById("pname").innerHTML = place.name;
+      document.getElementById("pname2").innerHTML = place.name;
+      document.getElementById("addr2").innerHTML = place.formatted_address;
+      var PT = place.photos;
+      if (PT) {
+        document.getElementById("pimg").src = PT[0].getUrl({'maxWidth': 1281, 'maxHeight': 721});
+        document.getElementById("pimg2").src = PT[0].getUrl({'maxWidth': 1281, 'maxHeight':721 });
+      }
+      else
+      {
+        document.getElementById("pimg").src = "img_avatar2.jpg";
+        document.getElementById("pimg2").src = "img_avatar2.jpg"; 
+      }
+      n=place.name;
       marker.bindTo('map', searchBox, 'map');
       google.maps.event.addListener(marker, 'map_changed', function () {
         if (!this.getMap()) {
@@ -123,12 +157,26 @@ google.maps.event.addListener(searchBox, 'places_changed', function () {
       bounds.extend(place.geometry.location);
     }(place));
   }
+  var y=document.getElementById("showbtn");
+  y.style.display="none";
   map.fitBounds(bounds);
   searchBox.set('map', map);
   map.setZoom(17);
   closedatacard();
   closedirectcard();
   opennorm();
+  document.getElementById("code").innerHTML = "-";
+  document.getElementById("faculty").innerHTML = "-";
+  document.getElementById("content").innerHTML = "&emsp;"+"น่าจะไม่มีในฐานข้อมูลครับ";
+  document.getElementById("floor").innerHTML = "-";
+  firestore.collection("AAAA").where("Name", "==", n).get().then((snapshot) => {
+    snapshot.forEach(doc => {
+        document.getElementById("code").innerHTML = doc.data().Code;
+        document.getElementById("faculty").innerHTML = doc.data().Faculty;
+        document.getElementById("content").innerHTML = "&emsp;"+doc.data().Content;
+        document.getElementById("floor").innerHTML = doc.data().Floor;
+    });
+  });
 });
 function closenormcard() {
   var x = document.getElementById("normal");
@@ -141,6 +189,34 @@ function closenormcard2() {
     marker.setMap(null);
   }
   emptysearch()
+}
+function minimizedata()
+{
+  var x = document.getElementById("data");
+  x.style.display = "none";
+  var y=document.getElementById("showdatabtn");
+  y.style.display="block";
+}
+function maximizedata()
+{
+  var x = document.getElementById("data");
+  x.style.display = "block";
+  var y=document.getElementById("showdatabtn");
+  y.style.display="none";
+}
+function minimize()
+{
+  var x = document.getElementById("direct");
+  x.style.display = "none";
+  var y=document.getElementById("showbtn");
+  y.style.display="block";
+}
+function maximize()
+{
+  var x = document.getElementById("direct");
+  x.style.display = "block";
+  var y=document.getElementById("showbtn");
+  y.style.display="none";
 }
 function closedirectcard() {
   var x = document.getElementById("direct");
@@ -169,10 +245,14 @@ function closedatacard() {
   var x = document.getElementById("data");
   x.style.display = "none";
 }
+function closelist() {
+  var x = document.getElementById("list");
+  x.style.display = "none";
+}
 function closedatacard2() {
   var x = document.getElementById("data");
   x.style.display = "none";
-  emptysearch()
+  emptysearch();
   if (marker) {
     marker.setMap(null);
   }
@@ -194,6 +274,10 @@ function opennorm() {
 }
 function openroute() {
   var x = document.getElementById("route");
+  x.style.display = "block";
+}
+function openlist() {
+  var x = document.getElementById("list");
   x.style.display = "block";
 }
 function emptydest() {
@@ -270,7 +354,7 @@ function calculateAndDisplayRoute(directionsDisplay, directionsService, map, sta
       directionsDisplay.setDirections(response);
     }
     else {
-      window.alert('Directions request failed due to ' + status);
+      window.alert('หาไม่เจออ่าค้าบบบ มีปัญหาอ่ะไรสักอย่างแหละ');
     }
   });
   directionsDisplay.setPanel(document.getElementById('route'));
@@ -316,7 +400,7 @@ function calculateAndDisplayRoute2(directionsService, directionsDisplay, start, 
       if (status === 'OK') {
         directionsDisplay.setDirections(response);
       } else {
-        window.alert('Directions request failed due to ' + status);
+        window.alert('หาไม่เจออ่าค้าบบบ มีปัญหาอ่ะไรสักอย่างแหละ');
       }
     });
 }
