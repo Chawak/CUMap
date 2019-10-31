@@ -1,0 +1,2228 @@
+/*IPHONE5*/
+@media only screen 
+and (min-device-width: 320px) 
+and (max-device-width: 568px)
+and (-webkit-min-device-pixel-ratio: 2) {
+    .searchboxincard {
+        position: absolute;
+        box-shadow: rgba(0, 0, 0, 0.2);
+        right: 10%;
+        top: 6%;
+        width: 80%;
+        height: 50%;
+    }
+    
+    .card {
+        position: fixed;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        bottom: 5%;
+        right: 8%;
+        width: 85%;
+        height: 38%;
+        z-index: 100;
+        display: none;
+        overflow: auto;
+    }
+    .carddi {
+        height: 50%;
+    }
+    .card3{
+        position: fixed;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        top: 20%;
+        left: 10%;
+        width: 80%;
+        height: 60%;
+        z-index: 110;
+        background-color: white;
+        display: none;
+    }
+    
+    .card2 {
+        position: absolute;
+        top: 50%;
+        left: 1%;
+        width: 98%;
+        height: 50%;
+        z-index: 102;
+        display: none;
+        overflow: auto;
+    }
+    .container {
+        position: fixed;
+        top: 54%;
+        left: 2%;
+    }
+    
+    #tincard {
+        position: absolute;
+        bottom: 15%;
+        left: 0%;
+        width: 100%;
+    }
+    
+    #tindirect {
+        position: absolute;
+        top: 2%;
+        left: 0%;
+        width: 100%;
+    }
+    
+    #tindata {
+        position: absolute;
+        top: 40%;
+        left: 0%;
+        width: 100%;
+    }
+    .name
+    {
+        font-size: 50%;
+    }
+    .address
+    {
+        font-size: 90%;
+    }
+    .imgincard {
+        position: absolute;
+        width: 100%;
+        height: 55%;
+    }
+    .imgindata {
+        position: absolute;
+        width: 100%;
+        height: 40%;
+    }
+    
+    #routebtn {
+        position: absolute;
+        bottom: 3%;
+        left: 15%;
+        width: 25%;
+        height: 15%;
+        font-size: 80%;
+    }
+    
+    #factbtn {
+        position: absolute;
+        bottom: 3%;
+        left: 55%;
+        width: 25%;
+        height: 15%;
+        font-size: 80%;
+    }
+    
+    .moreheight {
+        height: 9.5%;
+    }
+    
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    .loc {
+        position: absolute;
+        top: 35%;
+        left: 5%;
+        width:90%;
+        font-size: 80%;
+    }
+    
+    #listbtn {
+        position: fixed;
+        top: 10%;
+        left: 1%;
+        z-index: 105;
+    }
+    #showbtn {
+        position: fixed;
+        top: 18%;
+        left: 1%;
+        z-index: 105;
+    }
+    #showdatabtn {
+        position: fixed;
+        top: 18%;
+        left: 1%;
+        z-index: 105;
+    }
+    #closebutton4{
+        position: absolute;
+        top: 2%;
+        right: 3%;
+        z-index: 102;
+        width: 7%;
+        height: 8%;
+        padding: 0;
+        border: none;
+        background: url(close.png);
+    }
+    #closebutton2 {
+        position: absolute;
+        top: 2%;
+        right: 3%;
+        z-index: 102;
+        width: 6.5%;
+        height: 5%;
+        padding: 0;
+        border: none;
+        background: url(close.png);
+    }
+    #closebutton3 {
+        position: absolute;
+        top: 2%;
+        right: 4%;
+        z-index: 102;
+        width: 7%;
+        height: 7%;
+        padding: 0;
+        border: none;
+        background: url(close.png);
+    }
+    #minbutton {
+        position: absolute;
+        top: 2%;
+        left: 3%;
+        z-index: 102;
+        width: 7%;
+        height: 6%;
+        padding: 0;
+        border: none;
+        background: url(min.png);
+    }
+    #map {
+        height: 91%;
+    }
+    
+    #places {
+        position: fixed;
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 90%;
+        font-weight: 300;
+        top: 1%;
+        right: 3%;
+        padding: 1% 1%;
+        text-overflow: ellipsis;
+        width: 55%;
+        height: 8%;
+    }
+    
+    .noshadow {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+    
+    .btn-group {
+        position: absolute;
+        top: 20%;
+        left: 5%;
+        width:90%;
+    }
+    .groupB
+    {
+        position: absolute;
+        top:0%;
+        left:0%;
+        width:32%;
+        font-size: 80%;
+    }
+    .hidden {
+        display: none;
+    }
+    
+    .controls {
+        margin-top: 2%;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 9%;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    #places:focus {
+        border-color: #4d90fe;
+    }
+    
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    #logo {
+        position: absolute;
+        height:100%;
+        width: 30%;
+        left: 0.5%;
+        bottom: 0%;
+    }
+    
+    .navbar-custom {
+        background-color: "white";
+    }
+    
+    .navbar-custom .navbar-brand,
+    .navbar-custom .navbar-text {
+        color: #f77bd8;
+    }
+    
+    .navbar-custom .navbar-nav .nav-link {
+        color: #f77bd8;
+    }
+    
+    .btn-custom {
+        background-color: #FFAEC9;
+    }
+}
+ 
+/*IPHONE678*/
+@media only screen 
+and (min-device-width: 375px) 
+and (max-device-width: 667px) 
+and (-webkit-min-device-pixel-ratio: 2) { 
+  .searchboxincard {
+      position: absolute;
+      box-shadow: rgba(0, 0, 0, 0.2);
+      right: 10%;
+      top: 6%;
+      width: 80%;
+      height: 20%;
+  }
+  
+  .card {
+      position: fixed;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      bottom: 5%;
+      right: 8%;
+      width: 85%;
+      height: 38%;
+      z-index: 100;
+      display: none;
+      overflow: auto;
+  }
+  .carddi {
+      height: 50%;
+  }
+  .card3{
+      position: fixed;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      top: 20%;
+      left: 10%;
+      width: 80%;
+      height: 60%;
+      z-index: 110;
+      background-color: white;
+      display: none;
+  }
+  
+  .card2 {
+      position: absolute;
+      top: 45%;
+      left: 1%;
+      width: 98%;
+      height: 55%;
+      z-index: 102;
+      display: none;
+      overflow: auto;
+  }
+  .container {
+      position: fixed;
+      top: 54%;
+      left: 2%;
+  }
+  
+  #tincard {
+      position: absolute;
+      bottom: 13%;
+      left: 0%;
+      width: 100%;
+  }
+  
+  #tindirect {
+      position: absolute;
+      top: 2%;
+      left: 0%;
+      width: 100%;
+  }
+  
+  #tindata {
+      position: absolute;
+      top: 40%;
+      left: 0%;
+      width: 100%;
+  }
+  .name
+  {
+      font-size: 60%;
+  }
+  .address
+  {
+      font-size: 90%;
+  }
+  .imgincard {
+      position: absolute;
+      width: 100%;
+      height: 55%;
+  }
+  .imgindata {
+      position: absolute;
+      width: 100%;
+      height: 40%;
+  }
+  
+  #routebtn {
+      position: absolute;
+      bottom: 6%;
+      left: 15%;
+      width: 30%;
+      height: 16%;
+      font-size: 110%;
+  }
+  
+  #factbtn {
+      position: absolute;
+      bottom: 6%;
+      left: 55%;
+      width: 30%;
+      height: 16%;
+      font-size: 110%;
+  }
+  
+  .moreheight {
+      height: 9.5%;
+  }
+  
+  .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .loc {
+      position: absolute;
+      top: 32%;
+      left: 5%;
+  }
+  
+  #listbtn {
+      position: fixed;
+      top: 10%;
+      left: 1%;
+      z-index: 105;
+  }
+  #showbtn {
+      position: fixed;
+      top: 17%;
+      left: 1%;
+      z-index: 105;
+  }
+  #showdatabtn {
+    position: fixed;
+    top: 17%;
+    left: 1%;
+    z-index: 105;
+}
+  #closebutton4{
+      position: absolute;
+      top: 2%;
+      right: 3%;
+      z-index: 102;
+      width: 5%;
+      height: 7%;
+      padding: 0;
+      border: none;
+      background: url(close.png);
+  }
+  #closebutton2 {
+      position: absolute;
+      top: 2%;
+      right: 3%;
+      z-index: 102;
+      width: 6.5%;
+      height: 5%;
+      padding: 0;
+      border: none;
+      background: url(close.png);
+  }
+  #closebutton3 {
+      position: absolute;
+      top: 2%;
+      right: 4%;
+      z-index: 102;
+      width: 6%;
+      height: 5.4%;
+      padding: 0;
+      border: none;
+      background: url(close.png);
+  }
+  #minbutton {
+      position: absolute;
+      top: 2%;
+      left: 3%;
+      z-index: 102;
+      width: 6.5%;
+      height: 6%;
+      padding: 0;
+      border: none;
+      background: url(min.png);
+  }
+  #map {
+      height: 91%;
+  }
+  
+  #places {
+      position: fixed;
+      background-color: #fff;
+      font-family: Roboto;
+      font-size: 90%;
+      font-weight: 300;
+      top: 1%;
+      right: 3%;
+      padding: 1% 1%;
+      text-overflow: ellipsis;
+      width: 55%;
+      height: 8%;
+  }
+  
+  .noshadow {
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+  }
+  
+  .btn-group {
+      position: absolute;
+      top: 20%;
+      right: 5%;
+  }
+  
+  .hidden {
+      display: none;
+  }
+  
+  .controls {
+      margin-top: 2%;
+      border: 1px solid transparent;
+      border-radius: 2px 0 0 2px;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      height: 9%;
+      outline: none;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  #places:focus {
+      border-color: #4d90fe;
+  }
+  
+  html,
+  body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+  }
+  
+  #logo {
+      position: absolute;
+      height:100%;
+      width: 30%;
+      left: 0.5%;
+      bottom: 0%;
+  }
+  
+  .navbar-custom {
+      background-color: "white";
+  }
+  
+  .navbar-custom .navbar-brand,
+  .navbar-custom .navbar-text {
+      color: #f77bd8;
+  }
+  
+  .navbar-custom .navbar-nav .nav-link {
+      color: #f77bd8;
+  }
+  
+  .btn-custom {
+      background-color: #FFAEC9;
+  }
+}
+ /*IPHONEX*/
+ @media only screen 
+ and (min-device-width: 375px) 
+ and (max-device-width: 812px) 
+ and (-webkit-min-device-pixel-ratio: 3) { 
+   .searchboxincard {
+       position: absolute;
+       box-shadow: rgba(0, 0, 0, 0.2);
+       right: 10%;
+       top: 6%;
+       width: 80%;
+       height: 20%;
+   }
+   
+   .card {
+       position: fixed;
+       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+       bottom: 5%;
+       right: 8%;
+       width: 85%;
+       height: 38%;
+       z-index: 100;
+       display: none;
+       overflow: auto;
+   }
+   .carddi {
+       height: 50%;
+   }
+   .card3{
+       position: fixed;
+       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+       top: 20%;
+       left: 10%;
+       width: 80%;
+       height: 60%;
+       z-index: 110;
+       background-color: white;
+       display: none;
+   }
+   
+   .card2 {
+       position: absolute;
+       top: 45%;
+       left: 1%;
+       width: 98%;
+       height: 55%;
+       z-index: 102;
+       display: none;
+       overflow: auto;
+   }
+   .container {
+       position: fixed;
+       top: 54%;
+       left: 2%;
+   }
+   
+   #tincard {
+       position: absolute;
+       bottom: 15%;
+       left: 0%;
+       width: 100%;
+   }
+   
+   #tindirect {
+       position: absolute;
+       top: 2%;
+       left: 0%;
+       width: 100%;
+   }
+   
+   #tindata {
+       position: absolute;
+       top: 40%;
+       left: 0%;
+       width: 100%;
+   }
+   .name
+   {
+       font-size: 80%;
+   }
+   .address
+   {
+       font-size: 90%;
+   }
+   .imgincard {
+       position: absolute;
+       width: 100%;
+       height: 55%;
+   }
+   .imgindata {
+       position: absolute;
+       width: 100%;
+       height: 40%;
+   }
+   
+   #routebtn {
+       position: absolute;
+       bottom: 6%;
+       left: 15%;
+       width: 30%;
+       height: 20%;
+       font-size: 110%;
+   }
+   
+   #factbtn {
+       position: absolute;
+       bottom: 6%;
+       left: 55%;
+       width: 30%;
+       height: 20%;
+       font-size: 110%;
+   }
+   
+   .moreheight {
+       height: 9.5%;
+   }
+   
+   .card:hover {
+       box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+   }
+   
+   .loc {
+       position: absolute;
+       top: 32%;
+       left: 5%;
+       width:90%;
+   }
+   
+   #listbtn {
+       position: fixed;
+       top: 10%;
+       left: 1%;
+       z-index: 105;
+   }
+   #showbtn {
+       position: fixed;
+       top: 15.5%;
+       left: 1%;
+       z-index: 105;
+   }
+   #showdatabtn {
+    position: fixed;
+    top: 15.5%;
+    left: 1%;
+    z-index: 105;
+}
+
+   #closebutton4{
+       position: absolute;
+       top: 2%;
+       right: 3%;
+       z-index: 102;
+       width: 6%;
+       height: 7%;
+       padding: 0;
+       border: none;
+       background: url(close.png);
+   }
+   #closebutton2 {
+       position: absolute;
+       top: 2%;
+       right: 3%;
+       z-index: 102;
+       width: 6.5%;
+       height: 4%;
+       padding: 0;
+       border: none;
+       background: url(close.png);
+   }
+   #closebutton3 {
+       position: absolute;
+       top: 2%;
+       right: 4%;
+       z-index: 102;
+       width: 6%;
+       height: 5.4%;
+       padding: 0;
+       border: none;
+       background: url(close.png);
+   }
+   #minbutton {
+       position: absolute;
+       top: 2%;
+       left: 3%;
+       z-index: 102;
+       width: 6%;
+       height: 5%;
+       padding: 0;
+       border: none;
+       background: url(min.png);
+   }
+   #map {
+       height: 91%;
+   }
+   
+   #places {
+       position: fixed;
+       background-color: #fff;
+       font-family: Roboto;
+       font-size: 90%;
+       font-weight: 300;
+       top: 1%;
+       right: 3%;
+       padding: 1% 1%;
+       text-overflow: ellipsis;
+       width: 55%;
+       height: 8%;
+   }
+   
+   .noshadow {
+       -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+       box-shadow: none;
+   }
+   
+   .btn-group {
+       position: absolute;
+       top: 20%;
+       right: 5%;
+   }
+   
+   .hidden {
+       display: none;
+   }
+   
+   .controls {
+       margin-top: 2%;
+       border: 1px solid transparent;
+       border-radius: 2px 0 0 2px;
+       box-sizing: border-box;
+       -moz-box-sizing: border-box;
+       height: 9%;
+       outline: none;
+       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+   }
+   
+   #places:focus {
+       border-color: #4d90fe;
+   }
+   
+   html,
+   body {
+       height: 100%;
+       margin: 0;
+       padding: 0;
+   }
+   
+   #logo {
+       position: absolute;
+       height:100%;
+       width: 30%;
+       left: 0.5%;
+       bottom: 0%;
+   }
+   
+   .navbar-custom {
+       background-color: "white";
+   }
+   
+   .navbar-custom .navbar-brand,
+   .navbar-custom .navbar-text {
+       color: #f77bd8;
+   }
+   
+   .navbar-custom .navbar-nav .nav-link {
+       color: #f77bd8;
+   }
+   
+   .btn-custom {
+       background-color: #FFAEC9;
+   }
+ }
+/*IPHONE678+*/
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+    .searchboxincard {
+        position: absolute;
+        box-shadow: rgba(0, 0, 0, 0.2);
+        right: 10%;
+        top: 6%;
+        width: 80%;
+        height: 20%;
+    }
+    
+    .card {
+        position: fixed;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        bottom: 5%;
+        right: 8%;
+        width: 85%;
+        height: 38%;
+        z-index: 100;
+        display: none;
+        overflow: auto;
+    }
+    .carddi {
+        height: 50%;
+    }
+    .card3{
+        position: fixed;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        top: 20%;
+        left: 10%;
+        width: 80%;
+        height: 60%;
+        z-index: 110;
+        background-color: white;
+        display: none;
+    }
+    
+    .card2 {
+        position: absolute;
+        top: 45%;
+        left: 1%;
+        width: 98%;
+        height: 55%;
+        z-index: 102;
+        display: none;
+        overflow: auto;
+    }
+    .container {
+        position: fixed;
+        top: 54%;
+        left: 2%;
+    }
+    
+    #tincard {
+        position: absolute;
+        bottom: 15%;
+        left: 0%;
+        width: 100%;
+    }
+    
+    #tindirect {
+        position: absolute;
+        top: 2%;
+        left: 0%;
+        width: 100%;
+    }
+    
+    #tindata {
+        position: absolute;
+        top: 40%;
+        left: 0%;
+        width: 100%;
+    }
+    .name
+    {
+        font-size: 80%;
+    }
+    .address
+    {
+        font-size: 90%;
+    }
+    .imgincard {
+        position: absolute;
+        width: 100%;
+        height: 55%;
+    }
+    .imgindata {
+        position: absolute;
+        width: 100%;
+        height: 40%;
+    }
+    
+    #routebtn {
+        position: absolute;
+        bottom: 7%;
+        left: 15%;
+        width: 25%;
+        height: 15%;
+        font-size: 80%;
+    }
+    
+    #factbtn {
+        position: absolute;
+        bottom: 7%;
+        left: 55%;
+        width: 25%;
+        height: 15%;
+        font-size: 80%;
+    }
+    
+    .moreheight {
+        height: 9.5%;
+    }
+    
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    .loc {
+        position: absolute;
+        top: 32%;
+        left: 5%;
+    }
+    
+    #listbtn {
+        position: fixed;
+        top: 10%;
+        left: 1%;
+        z-index: 105;
+    }
+    #showbtn {
+        position: fixed;
+        top: 16.5%;
+        left: 1%;
+        z-index: 105;
+    }
+    #showdatabtn {
+        position: fixed;
+        top: 16.5%;
+        left: 1%;
+        z-index: 105;
+    }
+    #closebutton4{
+        position: absolute;
+        top: 2%;
+        right: 3%;
+        z-index: 102;
+        width: 6%;
+        height: 7%;
+        padding: 0;
+        border: none;
+        background: url(close.png);
+    }
+    #closebutton2 {
+        position: absolute;
+        top: 2%;
+        right: 3%;
+        z-index: 102;
+        width: 6.5%;
+        height: 4%;
+        padding: 0;
+        border: none;
+        background: url(close.png);
+    }
+    #closebutton3 {
+        position: absolute;
+        top: 2%;
+        right: 4%;
+        z-index: 102;
+        width: 6%;
+        height: 5.4%;
+        padding: 0;
+        border: none;
+        background: url(close.png);
+    }
+    #minbutton {
+        position: absolute;
+        top: 2%;
+        left: 3%;
+        z-index: 102;
+        width: 5.7%;
+        height: 5.2%;
+        padding: 0;
+        border: none;
+        background: url(min.png);
+    }
+    #map {
+        height: 91%;
+    }
+    
+    #places {
+        position: fixed;
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 100%;
+        font-weight: 300;
+        top: 1%;
+        right: 3%;
+        padding: 1% 1%;
+        text-overflow: ellipsis;
+        width: 55%;
+        height: 8%;
+    }
+    
+    .noshadow {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+    
+    .btn-group {
+        position: absolute;
+        top: 20%;
+        left: 5%;
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    .controls {
+        margin-top: 2%;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 9%;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    #places:focus {
+        border-color: #4d90fe;
+    }
+    
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    #logo {
+        position: absolute;
+        height:100%;
+        width: 30%;
+        left: 0.5%;
+        bottom: 0%;
+    }
+    
+    .navbar-custom {
+        background-color: "white";
+    }
+    
+    .navbar-custom .navbar-brand,
+    .navbar-custom .navbar-text {
+        color: #f77bd8;
+    }
+    
+    .navbar-custom .navbar-nav .nav-link {
+        color: #f77bd8;
+    }
+    
+    .btn-custom {
+        background-color: #FFAEC9;
+    }
+}
+/* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+  @media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .searchboxincard {
+        position: absolute;
+        box-shadow: rgba(0, 0, 0, 0.2);
+        right: 10%;
+        top: 6%;
+        width: 80%;
+        height: 20%;
+    }
+    
+    .card {
+        position: fixed;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        bottom: 5%;
+        right: 13%;
+        width: 75%;
+        height: 38%;
+        z-index: 100;
+        display: none;
+        overflow: auto;
+    }
+    .carddi {
+        height: 50%;
+    }
+    .card3{
+        position: fixed;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        top: 20%;
+        left: 10%;
+        width: 80%;
+        height: 60%;
+        z-index: 110;
+        background-color: white;
+        display: none;
+    }
+    
+    .card2 {
+        position: absolute;
+        top: 45%;
+        left: 1%;
+        width: 98%;
+        height: 55%;
+        z-index: 102;
+        display: none;
+        overflow: auto;
+    }
+    .container {
+        position: fixed;
+        top: 60%;
+        left: 2%;
+    }
+    
+    #tincard {
+        position: absolute;
+        bottom: 5%;
+        left: 0%;
+        width: 100%;
+    }
+    
+    #tindirect {
+        position: absolute;
+        top: 2%;
+        left: 0%;
+        width: 100%;
+    }
+    
+    #tindata {
+        position: absolute;
+        top: 40%;
+        left: 0%;
+        width: 100%;
+    }
+    .name
+    {
+        font-size: 100%;
+        font-family: Roboto;
+    }
+    .address
+    {
+        font-size: 90%;
+    }
+    .imgincard {
+        position: absolute;
+        width: 100%;
+        height: 55%;
+    }
+    .imgindata {
+        position: absolute;
+        width: 100%;
+        height: 40%;
+    }
+    
+    #routebtn {
+        position: absolute;
+        bottom: 7%;
+        left: 15%;
+        width: 30%;
+        height: 15%;
+        font-size: 150%;
+    }
+    
+    #factbtn {
+        position: absolute;
+        bottom: 7%;
+        left: 55%;
+        width: 30%;
+        height: 15%;
+        font-size: 150%;
+    }
+    
+    .moreheight {
+        height: 7%;
+    }
+    
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    .loc {
+        position: absolute;
+        top: 37%;
+        left: 10%;
+        width:78%;
+    }
+    
+    #listbtn {
+        position: fixed;
+        top: 8%;
+        left: 2%;
+        z-index: 105;
+    }
+    #showbtn {
+        position: fixed;
+        top: 12%;
+        left: 2%;
+        z-index: 105;
+    }
+    #showdatabtn {
+        position: fixed;
+        top: 12%;
+        left: 2%;
+        z-index: 105;
+    }
+    #closebutton4{
+        position: absolute;
+        top: 2%;
+        right: 3%;
+        z-index: 102;
+        width: 3%;
+        height: 5%;
+        padding: 0;
+        border: none;
+        background: url(close.png);
+    }
+    #closebutton2 {
+        position: absolute;
+        top: 2%;
+        right: 3%;
+        z-index: 102;
+        width: 3%;
+        height: 3%;
+        padding: 0;
+        border: none;
+        background: url(close.png);
+    }
+    #closebutton3 {
+        position: absolute;
+        top: 2%;
+        right: 4%;
+        z-index: 102;
+        width: 3%;
+        height:4%;
+        padding: 0;
+        border: none;
+        background: url(close.png);
+    }
+    #minbutton {
+        position: absolute;
+        top: 2%;
+        left: 3%;
+        z-index: 102;
+        width: 3.4%;
+        height: 4%;
+        padding: 0;
+        border: none;
+        background: url(min.png);
+    }
+    #map {
+        height: 91%;
+    }
+    
+    #places {
+        position: fixed;
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 160%;
+        font-weight: 300;
+        top: 1%;
+        right: 3%;
+        padding: 1% 1%;
+        text-overflow: ellipsis;
+        width: 55%;
+        height: 5%;
+    }
+    
+    .noshadow {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+    
+    .btn-group {
+        position: absolute;
+        top: 25%;
+        left: 10%;
+        width:80%;
+    }
+    .groupB
+    {
+        position: absolute;
+        width:32%;
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    .controls {
+        margin-top: 2%;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 9%;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    #places:focus {
+        border-color: #4d90fe;
+    }
+    
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    #logo {
+        position: absolute;
+        height:100%;
+        width: 30%;
+        left: 0.5%;
+        bottom: 0%;
+    }
+    
+    .navbar-custom {
+        background-color: "white";
+    }
+    
+    .navbar-custom .navbar-brand,
+    .navbar-custom .navbar-text {
+        color: #f77bd8;
+    }
+    
+    .navbar-custom .navbar-nav .nav-link {
+        color: #f77bd8;
+    }
+    
+    .btn-custom {
+        background-color: #FFAEC9;
+    }
+}
+/*IPAD PRO*/
+@media only screen 
+and (min-device-width: 1024px) 
+and (max-device-width: 1366px) {
+    .searchboxincard {
+        position: absolute;
+        box-shadow: rgba(0, 0, 0, 0.2);
+        right: 10%;
+        top: 6%;
+        width: 80%;
+        height: 20%;
+    }
+    
+    .card {
+        position: fixed;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        bottom: 5%;
+        right: 13%;
+        width: 75%;
+        height: 38%;
+        z-index: 100;
+        display: none;
+        overflow: auto;
+    }
+    .carddi {
+        height: 50%;
+    }
+    .card3{
+        position: fixed;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        top: 20%;
+        left: 10%;
+        width: 80%;
+        height: 60%;
+        z-index: 110;
+        background-color: white;
+        display: none;
+    }
+    
+    .card2 {
+        position: absolute;
+        top: 45%;
+        left: 1%;
+        width: 98%;
+        height: 55%;
+        z-index: 102;
+        display: none;
+        overflow: auto;
+    }
+    .container {
+        position: fixed;
+        top: 60%;
+        left: 2%;
+    }
+    
+    #tincard {
+        position: absolute;
+        bottom: 5%;
+        left: 0%;
+        width: 100%;
+    }
+    
+    #tindirect {
+        position: absolute;
+        top: 2%;
+        left: 0%;
+        width: 100%;
+    }
+    
+    #tindata {
+        position: absolute;
+        top: 40%;
+        left: 0%;
+        width: 100%;
+    }
+    .name
+    {
+        font-size: 120%;
+        font-family: Roboto;
+    }
+    .address
+    {
+        font-size: 90%;
+    }
+    .imgincard {
+        position: absolute;
+        width: 100%;
+        height: 55%;
+    }
+    .imgindata {
+        position: absolute;
+        width: 100%;
+        height: 40%;
+    }
+    
+    #routebtn {
+        position: absolute;
+        bottom: 12%;
+        left: 15%;
+        width: 30%;
+        height: 15%;
+        font-size: 180%;
+    }
+    
+    #factbtn {
+        position: absolute;
+        bottom: 12%;
+        left: 55%;
+        width: 30%;
+        height: 15%;
+        font-size: 180%;
+    }
+    
+    .moreheight {
+        height: 7%;
+    }
+    
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    .loc {
+        position: absolute;
+        top: 37%;
+        left: 10%;
+        width:78%;
+    }
+    
+    #listbtn {
+        position: fixed;
+        top: 8%;
+        left: 2%;
+        z-index: 105;
+    }
+    #showbtn {
+        position: fixed;
+        top: 12%;
+        left: 2%;
+        z-index: 105;
+    }
+    #showdatabtn {
+        position: fixed;
+        top: 12%;
+        left: 2%;
+        z-index: 105;
+    }
+    #closebutton4{
+        position: absolute;
+        top: 2%;
+        right: 3%;
+        z-index: 102;
+        width: 2.7%;
+        height: 4%;
+        padding: 0;
+        border: none;
+        background: url(close.png);
+    }
+    #closebutton2 {
+        position: absolute;
+        top: 2%;
+        right: 3%;
+        z-index: 102;
+        width: 2%;
+        height: 2.6%;
+        padding: 0;
+        border: none;
+        background: url(close.png);
+    }
+    #closebutton3 {
+        position: absolute;
+        top: 2%;
+        right: 4%;
+        z-index: 102;
+        width: 2.8%;
+        height:3%;
+        padding: 0;
+        border: none;
+        background: url(close.png);
+    }
+    #minbutton {
+        position: absolute;
+        top: 2%;
+        left: 3%;
+        z-index: 102;
+        width: 2.6%;
+        height: 2.8%;
+        padding: 0;
+        border: none;
+        background: url(min.png);
+    }
+    #map {
+        height: 91%;
+    }
+    
+    #places {
+        position: fixed;
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 200%;
+        font-weight: 300;
+        top: 1%;
+        right: 3%;
+        padding: 1% 1%;
+        text-overflow: ellipsis;
+        width: 55%;
+        height: 5%;
+    }
+    
+    .noshadow {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+    
+    .btn-group {
+        position: absolute;
+        top: 25%;
+        left: 10%;
+        width:80%;
+    }
+    .groupB
+    {
+        position: absolute;
+        width:32%;
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    .controls {
+        margin-top: 2%;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 9%;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    #places:focus {
+        border-color: #4d90fe;
+    }
+    
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    #logo {
+        position: absolute;
+        height:100%;
+        width: 30%;
+        left: 0.5%;
+        bottom: 0%;
+    }
+    
+    .navbar-custom {
+        background-color: "white";
+    }
+    
+    .navbar-custom .navbar-brand,
+    .navbar-custom .navbar-text {
+        color: #f77bd8;
+    }
+    
+    .navbar-custom .navbar-nav .nav-link {
+        color: #f77bd8;
+    }
+    
+    .btn-custom {
+        background-color: #FFAEC9;
+    }
+}
+/*
+PC*/
+  
+@media screen and (min-device-width: 1200px) 
+and (max-device-width: 1600px) 
+and (-webkit-min-device-pixel-ratio: 1) { 
+    .name
+    {
+        font-size: 80%;
+        font-family: Roboto;
+    }
+    .searchboxincard {
+        position: absolute;
+        box-shadow: rgba(0, 0, 0, 0.2);
+        right: 8%;
+        top: 3%;
+        width: 80%;
+        height: 20%;
+    }
+    
+    .searchboxincard2 {
+        position: absolute;
+        right: 8%;
+        top: 13%;
+        width: 80%;
+        height: 20%;
+    }
+    
+    .card {
+        position: fixed;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        top: 12%;
+        right: 1%;
+        width: 25%;
+        height: 75%;
+        z-index: 100;
+        display: none;
+        overflow: auto;
+    }
+    .card3{
+        position: fixed;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        top: 10%;
+        left: 15%;
+        width: 70%;
+        height: 80%;
+        z-index: 110;
+        background-color: white;
+        display: none;
+    }
+    
+    .card2 {
+        position: absolute;
+        top: 35%;
+        left: 1%;
+        width: 98%;
+        height: 65%;
+        z-index: 102;
+        display: none;
+        overflow: auto;
+    }
+    .cardnor
+    {
+        height: 50%;
+    }
+    .container {
+        position: fixed;
+        top: 54%;
+        left: 2%;
+    }
+    
+    #tincard {
+        position: absolute;
+        bottom: 20%;
+        left: 0%;
+        width: 100%;
+    }
+    
+    #tindirect {
+        position: absolute;
+        top: 2%;
+        left: 0%;
+        width: 100%;
+    }
+    
+    #tindata {
+        position: absolute;
+        top: 45%;
+        left: 0%;
+        width: 100%;
+    }
+    
+    .imgincard {
+        position: absolute;
+        width: 100%;
+        height: 50%;
+    }
+    
+    .imgindata {
+        position: absolute;
+        width: 100%;
+        height: 40%;
+    }
+    
+    #routebtn {
+        position: absolute;
+        bottom: 10%;
+        left: 15%;
+        width: 30%;
+        height: 12%;
+        font-size: 110%;
+    }
+    
+    #factbtn {
+        position: absolute;
+        bottom: 10%;
+        left: 55%;
+        width: 30%;
+        height: 12%;
+        font-size: 110%;
+    }
+    
+    .moreheight {
+        height: 9%;
+    }
+    
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    .loc {
+        position: absolute;
+        top: 25%;
+        left: 13%;
+    }
+    
+    #listbtn {
+        position: fixed;
+        top: 10%;
+        left: 1%;
+        z-index: 105;
+    }
+    #showbtn {
+        position: fixed;
+        top: 17%;
+        left: 1%;
+        z-index: 105;
+    }
+    #showdatabtn {
+        position: fixed;
+        top: 17%;
+        left: 1%;
+        z-index: 105;
+    }
+    
+    #closebutton {
+        position: absolute;
+        top: 2%;
+        right: 3%;
+        z-index: 102;
+        width: 5%;
+        height: 4%;
+        padding: 0;
+        border: none;
+        background: url(close.png);
+    }
+    #closebutton4 {
+        position: absolute;
+        top: 2%;
+        right: 3%;
+        z-index: 102;
+        width: 5%;
+        height: 6%;
+        padding: 0;
+        border: none;
+        background: url(close.png);
+    }
+    #closebutton2 {
+        position: absolute;
+        top: 2%;
+        right: 3%;
+        z-index: 102;
+        width: 2%;
+        height: 4%;
+        padding: 0;
+        border: none;
+        background: url(close.png);
+    }
+    #closebutton3 {
+        position: absolute;
+        top: 2%;
+        right: 3%;
+        z-index: 102;
+        width: 5%;
+        height: 4.2%;
+        padding: 0;
+        border: none;
+        background: url(close.png);
+    }
+    #minbutton {
+        position: absolute;
+        top: 2%;
+        left: 3%;
+        z-index: 102;
+        width: 6%;
+        height: 4%;
+        padding: 0;
+        border: none;
+        background: url(min.png);
+    }
+    #map {
+        height: 91%;
+    }
+    
+    #places {
+        position: fixed;
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 100%;
+        font-weight: 300;
+        top: 0.5%;
+        right: 5%;
+        padding: 1% 1%;
+        text-overflow: ellipsis;
+        width: 30%;
+        height: 8%;
+    }
+    
+    .noshadow {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+    
+    .btn-group {
+        position: absolute;
+        top: 16%;
+        left: 13%;
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    .controls {
+        margin-top: 2%;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 9%;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    #places:focus {
+        border-color: #4d90fe;
+    }
+    
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    #logo {
+        position: absolute;
+        height: 100%;
+        width: 10%;
+        left: 0.5%;
+        bottom: 0%;
+    }
+    
+    .navbar-custom {
+        background-color: "white";
+    }
+    
+    .navbar-custom .navbar-brand,
+    .navbar-custom .navbar-text {
+        color: #f77bd8;
+    }
+    
+    .navbar-custom .navbar-nav .nav-link {
+        color: #f77bd8;
+    }
+    
+    .btn-custom {
+        background-color: #FFAEC9;
+    }
+}
+/* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+  
+  @media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+    .searchboxincard {
+        position: absolute;
+        box-shadow: rgba(0, 0, 0, 0.2);
+        right: 10%;
+        top: 6%;
+        width: 80%;
+        height: 20%;
+    }
+    
+    .card {
+        position: fixed;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        bottom: 5%;
+        right: 8%;
+        width: 85%;
+        height: 38%;
+        z-index: 100;
+        display: none;
+        overflow: auto;
+    }
+    .carddi {
+        height: 50%;
+    }
+    .card3{
+        position: fixed;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        top: 20%;
+        left: 10%;
+        width: 80%;
+        height: 60%;
+        z-index: 110;
+        background-color: white;
+        display: none;
+    }
+    
+    .card2 {
+        position: absolute;
+        top: 45%;
+        left: 1%;
+        width: 98%;
+        height: 55%;
+        z-index: 102;
+        display: none;
+        overflow: auto;
+    }
+    .container {
+        position: fixed;
+        top: 54%;
+        left: 2%;
+    }
+    
+    #tincard {
+        position: absolute;
+        bottom: 15%;
+        left: 0%;
+        width: 100%;
+    }
+    
+    #tindirect {
+        position: absolute;
+        top: 2%;
+        left: 0%;
+        width: 100%;
+    }
+    
+    #tindata {
+        position: absolute;
+        top: 40%;
+        left: 0%;
+        width: 100%;
+    }
+    .name
+    {
+        font-size: 80%;
+    }
+    .address
+    {
+        font-size: 90%;
+    }
+    .imgincard {
+        position: absolute;
+        width: 100%;
+        height: 55%;
+    }
+    .imgindata {
+        position: absolute;
+        width: 100%;
+        height: 40%;
+    }
+    
+    #routebtn {
+        position: absolute;
+        bottom: 10%;
+        left: 15%;
+        width: 30%;
+        height: 20%;
+        font-size: 110%;
+    }
+    
+    #factbtn {
+        position: absolute;
+        bottom: 10%;
+        left: 55%;
+        width: 30%;
+        height: 20%;
+        font-size: 110%;
+    }
+    
+    .moreheight {
+        height: 9.5%;
+    }
+    
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    .loc {
+        position: absolute;
+        top: 32%;
+        left: 13%;
+        width:100%;
+    }
+    
+    #listbtn {
+        position: fixed;
+        top: 10%;
+        left: 1%;
+        z-index: 105;
+    }
+    #showbtn {
+        position: fixed;
+        top: 10%;
+        left: 1%;
+        z-index: 105;
+    }
+    #showdatabtn {
+        position: fixed;
+        top: 10%;
+        left: 1%;
+        z-index: 105;
+    }
+    #closebutton {
+        position: absolute;
+        top: 2%;
+        right: 3%;
+        z-index: 102;
+        width: 6%;
+        height: 7%;
+        padding: 0;
+        border: none;
+        background: url(close.png);
+    }
+    #closebutton4{
+        position: absolute;
+        top: 2%;
+        right: 3%;
+        z-index: 102;
+        width: 6%;
+        height: 7%;
+        padding: 0;
+        border: none;
+        background: url(close.png);
+    }
+    #closebutton2 {
+        position: absolute;
+        top: 2%;
+        right: 3%;
+        z-index: 102;
+        width: 6.5%;
+        height: 4%;
+        padding: 0;
+        border: none;
+        background: url(close.png);
+    }
+    #closebutton3 {
+        position: absolute;
+        top: 2%;
+        right: 4%;
+        z-index: 102;
+        width: 6%;
+        height: 5.4%;
+        padding: 0;
+        border: none;
+        background: url(close.png);
+    }
+    #minbutton {
+        position: absolute;
+        top: 2%;
+        left: 3%;
+        z-index: 102;
+        width: 2%;
+        height: 4%;
+        padding: 0;
+        border: none;
+        background: url(min.png);
+    }
+    #map {
+        height: 91%;
+    }
+    
+    #places {
+        position: fixed;
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 90%;
+        font-weight: 300;
+        top: 1%;
+        right: 3%;
+        padding: 1% 1%;
+        text-overflow: ellipsis;
+        width: 55%;
+        height: 8%;
+    }
+    
+    .noshadow {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+    
+    .btn-group {
+        position: absolute;
+        top: 20%;
+        left: 13%;
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    .controls {
+        margin-top: 2%;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 9%;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    #places:focus {
+        border-color: #4d90fe;
+    }
+    
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    #logo {
+        position: absolute;
+        height:100%;
+        width: 30%;
+        left: 0.5%;
+        bottom: 0%;
+    }
+    
+    .navbar-custom {
+        background-color: "white";
+    }
+    
+    .navbar-custom .navbar-brand,
+    .navbar-custom .navbar-text {
+        color: #f77bd8;
+    }
+    
+    .navbar-custom .navbar-nav .nav-link {
+        color: #f77bd8;
+    }
+    
+    .btn-custom {
+        background-color: #FFAEC9;
+    }
+}

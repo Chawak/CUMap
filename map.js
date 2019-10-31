@@ -28,8 +28,6 @@ var S = $_GET('start');
 var E = $_GET('end');
 var P = $_GET('places');
 function urlplace() {
-  var bounds = new google.maps.LatLngBounds();
-  var i, place;
   var request = {
     query: P,
     fields: ['name', 'geometry', 'photos', 'formatted_address']
@@ -37,27 +35,37 @@ function urlplace() {
   if (P === null) {
     return;
   }
-  
-  var service = new google.maps.places.PlacesService(map);
 
+  var service = new google.maps.places.PlacesService(map);
   service.findPlaceFromQuery(request, function (results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       map.setCenter(results[0].geometry.location);
       marker = new google.maps.Marker({
         position: results[0].geometry.location
       });
+      document.getElementById("code").innerHTML = "-";
+      document.getElementById("faculty").innerHTML = "-";
+      document.getElementById("content").innerHTML = "&emsp;" + "น่าจะไม่มีในฐานข้อมูลครับ";
+      document.getElementById("floor").innerHTML = "-";
+      firestore.collection("AAAA").where("Name", "==", results[0].name).get().then((snapshot) => {
+        snapshot.forEach(doc => {
+          document.getElementById("code").innerHTML = doc.data().Code;
+          document.getElementById("faculty").innerHTML = doc.data().Faculty;
+          document.getElementById("content").innerHTML = "&emsp;" + doc.data().Content;
+          document.getElementById("floor").innerHTML = doc.data().Floor;
+        });
+      });
       document.getElementById("pname").innerHTML = results[0].name;
       document.getElementById("pname2").innerHTML = results[0].name;
       document.getElementById("addr2").innerHTML = results[0].formatted_address;
       var PT = results[0].photos;
       if (PT) {
-        document.getElementById("pimg").src = PT[0].getUrl({'maxWidth': 1281, 'maxHeight': 721});
-        document.getElementById("pimg2").src = PT[0].getUrl({'maxWidth': 1281, 'maxHeight':721 });
+        document.getElementById("pimg").src = PT[0].getUrl({ 'maxWidth': 1281, 'maxHeight': 721 });
+        document.getElementById("pimg2").src = PT[0].getUrl({ 'maxWidth': 1281, 'maxHeight': 721 });
       }
-      else
-      {
+      else {
         document.getElementById("pimg").src = "img_avatar2.jpg";
-        document.getElementById("pimg2").src = "img_avatar2.jpg"; 
+        document.getElementById("pimg2").src = "img_avatar2.jpg";
       }
       marker.bindTo('map', searchBox, 'map');
       google.maps.event.addListener(marker, 'map_changed', function () {
@@ -65,12 +73,8 @@ function urlplace() {
           this.unbindAll();
         }
       });
-      bounds.extend(results[0].geometry.location);
     }
   });
-  var y=document.getElementById("showbtn");
-  y.style.display="none";
-  map.fitBounds(bounds);
   searchBox.set('map', map);
   map.setZoom(17);
   closedatacard();
@@ -139,15 +143,14 @@ google.maps.event.addListener(searchBox, 'places_changed', function () {
       document.getElementById("addr2").innerHTML = place.formatted_address;
       var PT = place.photos;
       if (PT) {
-        document.getElementById("pimg").src = PT[0].getUrl({'maxWidth': 1281, 'maxHeight': 721});
-        document.getElementById("pimg2").src = PT[0].getUrl({'maxWidth': 1281, 'maxHeight':721 });
+        document.getElementById("pimg").src = PT[0].getUrl({ 'maxWidth': 1281, 'maxHeight': 721 });
+        document.getElementById("pimg2").src = PT[0].getUrl({ 'maxWidth': 1281, 'maxHeight': 721 });
       }
-      else
-      {
+      else {
         document.getElementById("pimg").src = "img_avatar2.jpg";
-        document.getElementById("pimg2").src = "img_avatar2.jpg"; 
+        document.getElementById("pimg2").src = "img_avatar2.jpg";
       }
-      n=place.name;
+      n = place.name;
       marker.bindTo('map', searchBox, 'map');
       google.maps.event.addListener(marker, 'map_changed', function () {
         if (!this.getMap()) {
@@ -157,8 +160,10 @@ google.maps.event.addListener(searchBox, 'places_changed', function () {
       bounds.extend(place.geometry.location);
     }(place));
   }
-  var y=document.getElementById("showbtn");
-  y.style.display="none";
+  var y = document.getElementById("showbtn");
+  y.style.display = "none";
+  var y2 = document.getElementById("showdatabtn");
+  y2.style.display = "none";
   map.fitBounds(bounds);
   searchBox.set('map', map);
   map.setZoom(17);
@@ -167,14 +172,14 @@ google.maps.event.addListener(searchBox, 'places_changed', function () {
   opennorm();
   document.getElementById("code").innerHTML = "-";
   document.getElementById("faculty").innerHTML = "-";
-  document.getElementById("content").innerHTML = "&emsp;"+"น่าจะไม่มีในฐานข้อมูลครับ";
+  document.getElementById("content").innerHTML = "&emsp;" + "น่าจะไม่มีในฐานข้อมูลครับ";
   document.getElementById("floor").innerHTML = "-";
   firestore.collection("AAAA").where("Name", "==", n).get().then((snapshot) => {
     snapshot.forEach(doc => {
-        document.getElementById("code").innerHTML = doc.data().Code;
-        document.getElementById("faculty").innerHTML = doc.data().Faculty;
-        document.getElementById("content").innerHTML = "&emsp;"+doc.data().Content;
-        document.getElementById("floor").innerHTML = doc.data().Floor;
+      document.getElementById("code").innerHTML = doc.data().Code;
+      document.getElementById("faculty").innerHTML = doc.data().Faculty;
+      document.getElementById("content").innerHTML = "&emsp;" + doc.data().Content;
+      document.getElementById("floor").innerHTML = doc.data().Floor;
     });
   });
 });
@@ -190,33 +195,29 @@ function closenormcard2() {
   }
   emptysearch()
 }
-function minimizedata()
-{
+function minimizedata() {
   var x = document.getElementById("data");
   x.style.display = "none";
-  var y=document.getElementById("showdatabtn");
-  y.style.display="block";
+  var y = document.getElementById("showdatabtn");
+  y.style.display = "block";
 }
-function maximizedata()
-{
+function maximizedata() {
   var x = document.getElementById("data");
   x.style.display = "block";
-  var y=document.getElementById("showdatabtn");
-  y.style.display="none";
+  var y = document.getElementById("showdatabtn");
+  y.style.display = "none";
 }
-function minimize()
-{
+function minimize() {
   var x = document.getElementById("direct");
   x.style.display = "none";
-  var y=document.getElementById("showbtn");
-  y.style.display="block";
+  var y = document.getElementById("showbtn");
+  y.style.display = "block";
 }
-function maximize()
-{
+function maximize() {
   var x = document.getElementById("direct");
   x.style.display = "block";
-  var y=document.getElementById("showbtn");
-  y.style.display="none";
+  var y = document.getElementById("showbtn");
+  y.style.display = "none";
 }
 function closedirectcard() {
   var x = document.getElementById("direct");

@@ -1,292 +1,116 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>
-        CUMap</title>
-    <link rel = "icon" href =  "CU.png" type = "image/x-icon"> 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style>
-        .searchboxincard{
-            position: absolute;
-            box-shadow:  rgba(0, 0, 0, 0.2);
-            right:8%;
-            top:3%;
-            width:80%;
-            height:20%;
-        }
-        .searchboxincard2{
-            position: absolute;
-            right:8%;
-            top:13%;
-            width:80%;
-            height:20%;
-        }
-        .card {
-            position: fixed;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            top: 12%;
-            right: 1%;
-            width: 25%;
-            height: 75%;
-            z-index: 100;
-            display: none;
-        }
-        .card2{
-            position: absolute;
-            top: 35%;
-            left: 1%;
-            width: 98%;
-            height: 65%;
-            z-index: 102;
-            display: none;
-            overflow: auto;
-        }
+  <title>
+    CUMap</title>
+  <link rel="icon" href="CU.png" type="image/x-icon">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="cumap2.css">
 
-        #tincard {
-            position: absolute;
-            bottom: 20%;
-            left: 0%;
-            width: 100%;
-        }
-
-        #tindirect {
-            position: absolute;
-            top: 2%;
-            left: 0%;
-            width: 100%;
-        }
-        #tindata {
-            position: absolute;
-            top: 45%;
-            left: 0%;
-            width: 100%;
-        }
-
-        #imgincard {
-            width: 100%;
-            height: 60%;
-        }
-        #imgindata {
-            width: 100%;
-            height: 40%;
-        }
-        #routebtn {
-            position: absolute;
-            bottom: 7%;
-            left: 15%;
-            width:30%;
-            height:12%;
-            font-size: 110%;
-
-        }
-
-        #factbtn {
-            position: absolute;
-            bottom: 7%;
-            left: 55%;
-            width:30%;
-            height:12%;
-            font-size: 110%;
-        }
-
-        .moreheight {
-            height: 5%;
-        }
-
-        .card:hover {
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-        }
-        #loc{
-            position: absolute;
-            top:25%;
-            left:13%;
-        }
-        #list
-        {
-            position: fixed;
-            top:10%;
-            left:1%;
-            z-index: 105;
-        }
-        #closebutton {
-            position: absolute;
-            top: 2%;
-            right: 3%;
-            z-index: 102;
-            width: 5%;
-            height: 4%;
-            padding: 0;
-            border: none;
-            background: url(close.png);
-        }
-
-        #map {
-            height: 91%;
-        }
-
-        #places {
-            position: fixed;
-            background-color: #fff;
-            font-family: Roboto;
-            font-size: 100%;
-            font-weight: 300;
-            top:0.5%;
-            right:5%;
-            padding: 1%  1%;
-            text-overflow: ellipsis;
-            width: 30%;
-            height: 8%;
-        }
-        .noshadow{
-            -webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
-        }
-        .btn-group{
-            position: absolute;
-            top:16%;
-            left:13%;
-        }
-        .hidden
-        {
-            display: none;
-        }
-        .controls {
-            margin-top: 2%;
-            border: 1px solid transparent;
-            border-radius: 2px 0 0 2px;
-            box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            height: 9%;
-            outline: none;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        #places:focus {
-            border-color: #4d90fe;
-        }
-
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        #logo
-        {
-            position: absolute;
-            height: 100%;
-            width: 10%;
-            left:0.5%;
-            bottom:0%;
-        }
-        .navbar-custom {
-            background-color: "white";
-        }
-
-        .navbar-custom .navbar-brand,
-        .navbar-custom .navbar-text {
-            color: #f77bd8;
-        }
-
-        .navbar-custom .navbar-nav .nav-link {
-            color: #f77bd8;
-        }
-        .btn-custom{
-            background-color: #FFAEC9;
-        }
-    </style>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSYSoMCjexo3XRCnI63nspjsC4q_dXcg4&libraries=places"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSYSoMCjexo3XRCnI63nspjsC4q_dXcg4&libraries=places"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCg0rPrQFbdQl3gNj5g3bXBYNFFXgLEUBY",
+            authDomain: "cumap-1571812515788.firebaseapp.com",
+            databaseURL: "https://cumap-1571812515788.firebaseio.com",
+            projectId: "cumap-1571812515788",
+            storageBucket: "cumap-1571812515788.appspot.com",
+            messagingSenderId: "993403216578",
+            appId: "1:993403216578:web:3f20003f3cea658811915b",
+            measurementId: "G-6C7H7YHSDG"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
 </head>
 
 <body>
-        <button type="button" class="btn btn-primary btn-custom" id="list" >CHULA Akarn List</button>
-        <nav class="navbar navbar-expand-lg navbar-custom">
-                <a class="navbar-brand" href="#">
-                    <img id="logo" src="cumaplogo3.png">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" >Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <input class="form-control noshadow" id='places' type="search" placeholder="Where do you want to know?" aria-label="Search">
-
-                    </ul>
-                </div>
-            </nav>
-    <div class="card" id="normal">
-        <button id="closebutton" type="button" onclick="closenormcard2()"></button>
-        <img src="img_avatar2.jpg" id="imgincard" alt="Avatar">
-        <div id="tincard">
-            <div class="container">
-                <h4><b>Some Place</b></h4>
-                <p>Place Fact</p>
-            </div>
-        </div>
-        <button type="button" class="btn btn-primary btn-custom" id="routebtn" onclick="opendirect()">Route</button>
-        <button type="button" class="btn btn-primary btn-custom" id="factbtn" onclick="opendata()">Fact</button>
+  <div class="card3" id="list">
+    <button id="closebutton2" type="button" onclick="closelist()"></button>
+    น่าจะใส่ตึก รหัสตึก synnonym ไรพวกนี้(optional)</div>
+  <button type="button" class="btn btn-primary btn-custom" id="listbtn" onclick="openlist()">CHULA Akarn List</button>
+  <button type="button" class="btn btn-primary btn-custom hidden" id="showbtn" onclick="maximize()">Show Route</button>
+  <button type="button" class="btn btn-primary btn-custom hidden" id="showdatabtn" onclick="maximizedata()">Show Fact</button>
+  <nav class="navbar navbar-expand-lg navbar-custom moreheight">
+    <a class="navbar-brand" href="#">
+      <img class="responsive" id="logo" src="cumaplogo3.png">
+    </a>
+    <input class="nav-item form-control noshadow" id='places' type="search" placeholder="Where do you want to know?"
+      aria-label="Search">
+  </nav>
+  <div class="card cardnor" id="normal">
+    <button id="closebutton4" type="button" onclick="closenormcard2()"></button>
+    <div>
+      <img src="img_avatar2.jpg" class="imgincard" id="pimg" alt="Avatar"></div>
+    <div class="container" id="tincard">
+      <h4><b class="name" id="pname">Some Place</b></h4>
     </div>
-
-    <div class="card" id="direct">
-        <button id="closebutton" type="button" onclick="closedirectcard2()"></button>
-            <input class="form-control mr-sm-2 controls searchboxincard" id="destination" type="search" placeholder="Where are you?" aria-label="Search">
-            <button type="button" class="btn btn-primary btn-custom" id="loc" onclick="searchbygeo()">Use your location</button>
-              <div class="btn-group" id="walking">
-                <button type="button" class="btn btn-primary" onclick="walk()">Walking</button>
-                <button type="button" class="btn btn-primary btn-custom" onclick="drive()">Driving</button>
-                <button type="button" class="btn btn-primary btn-custom" onclick="transit()">Transit</button>
-              </div>
-              <div class="btn-group hidden" id="driving">
-                <button type="button" class="btn btn-primary btn-custom" onclick="walk()">Walking</button>
-                <button type="button" class="btn btn-primary" onclick="drive()">Driving</button>
-                <button type="button" class="btn btn-primary btn-custom" onclick="transit()">Transit</button>
-              </div>
-              <div class="btn-group hidden" id="transit">
-                <button type="button" class="btn btn-primary btn-custom" onclick="walk()">Walking</button>
-                <button type="button" class="btn btn-primary btn-custom" onclick="drive()">Driving</button>
-                <button type="button" class="btn btn-primary" onclick="transit()">Transit</button>
-              </div>
-            <div class="card2" id="route"></div>
+    <button type="button" class="btn btn-primary btn-custom" id="routebtn" onclick="opendirect()">Route</button>
+    <button type="button" class="btn btn-primary btn-custom" id="factbtn" onclick="opendata()">Fact</button>
+  </div>
+  <div class="card carddi" id="direct" >
+    <button id="closebutton3" type="button" onclick="closedirectcard2()"></button>
+    <button type="button" id="minbutton" onclick="minimize()"></button>
+    <input class="form-control mr-sm-2 controls searchboxincard" id="destination" type="search"
+      placeholder="Where are you?" aria-label="Search">
+    <button type="button" class="btn btn-primary btn-custom loc" onclick="searchbygeo()">Use your
+      location</button>
+    <div class="btn-group" id="walking">
+      <button type="button" class="btn btn-primary groupB" onclick="walk()">Walking</button>
+      <button type="button" class="btn btn-primary btn-custom groupB" onclick="drive()">Driving</button>
+      <button type="button" class="btn btn-primary btn-custom groupB" onclick="transit()">Transit</button>
     </div>
+    <div class="btn-group hidden" id="driving">
+      <button type="button" class="btn btn-primary btn-custom groupB" onclick="walk()">Walking</button>
+      <button type="button" class="btn btn-primary groupB" onclick="drive()">Driving</button>
+      <button type="button" class="btn btn-primary btn-custom groupB" onclick="transit()">Transit</button>
+    </div>
+    <div class="btn-group hidden" id="transit">
+      <button type="button" class="btn btn-primary btn-custom groupB" onclick="walk()">Walking</button>
+      <button type="button" class="btn btn-primary btn-custom groupB" onclick="drive()">Driving</button>
+      <button type="button" class="btn btn-primary groupB" onclick="transit()">Transit</button>
+    </div>
+    <div class="card2" id="route"></div>
+  </div>
 
-    <div class="card" id="data">
-            <button id="closebutton" type="button" onclick="closedatacard2()"></button>
-            <img src="img_avatar2.jpg" id="imgindata" alt="Avatar">
-            <div>
-                <div class="container" id="tindata">
-                    <h4><b>Some Place</b></h4>
-                    <p>Place Fact</p>
-                </div>
-            </div>
-        </div>
-
-
-    <div id=map></div>
-
-    
-    <script type="text/javascript" src="map.js"></script>
+  <div class="card carddi" id="data">
+    <button type="button" id="minbutton" onclick="minimizedata()"></button>
+    <button id="closebutton3" type="button" onclick="closedatacard2()"></button>
+    <img src="img_avatar2.jpg" class="imgindata" id="pimg2" alt="Avatar">
+    <div class="container fact" id="tindata">
+      <h4><b class="name" id="pname2">Some Place</b></h4>
+      <p class="address" id="addr2">Place Fact</p>
+      <div class="fact">
+      <b>Faculty: </b>
+      <p id="faculty"></p>
+      <b>Floor: </b>
+      <p id="floor"></p>
+      <b>Code: </b>
+      <p id="code"></p>
+      <p id="content"></p>
+    </div>
+    </div>
+  </div>
+  <div id=map></div>
+  <script type="text/javascript" src="map.js"></script>
 </body>
 
 </html>
